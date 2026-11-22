@@ -36,13 +36,23 @@ export const metadata = {
     siteName: "EVERISE DEV",
     type: "website",
     locale: "en_IN",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1732,
+        height: 908,
+        alt: "EVERISE DEV — Digital experiences, built to stand out.",
+        type: "image/png",
+      },
+    ],
   },
 
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "EVERISE DEV | Professional Web Development Studio",
     description:
       "Modern websites, e-commerce solutions, and custom web applications for ambitious businesses.",
+    images: ["/og-image.png"],
   },
 
   robots: {
