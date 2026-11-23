@@ -191,7 +191,7 @@ async function readLimitedJson(request) {
       totalBytes += value.byteLength;
 
       if (totalBytes > MAX_BODY_BYTES) {
-        await reader.cancel().catch(() => {});
+        await reader.cancel().catch(() => { });
 
         return { error: "too_large" };
       }
@@ -387,12 +387,16 @@ export async function POST(request) {
     }
 
     // 9. Save inquiry through the protected database function.
+    
+
     let savedInquiry;
 
     try {
       savedInquiry = await saveClientInquiry(
         parsed.data
       );
+
+      
     } catch {
       return jsonResponse(
         {
@@ -413,8 +417,12 @@ export async function POST(request) {
     let notificationMessageId = null;
 
     try {
+      
+
       const notification =
         await sendInquiryNotification(parsed.data);
+
+      
 
       notificationMessageId = notification.messageId;
     } catch {
@@ -433,11 +441,15 @@ export async function POST(request) {
     // 11. Record successful Resend acceptance.
     if (notificationMessageId) {
       try {
+        
+
         await markInquiryEmailSent(
           savedInquiry.id,
           notificationMessageId,
           authorizationToken
         );
+
+        
       } catch {
         // Resend may already have accepted the email.
         // Do not send it again.

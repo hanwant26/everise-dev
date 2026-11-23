@@ -1,21 +1,23 @@
 
 import "server-only";
 
-import { createRestrictedDbClient } from "@/lib/restrictedDb";
+import { getRestrictedDbPool } from "@/lib/restrictedDb";
 
 export async function withRestrictedTransaction(callback) {
   if (typeof callback !== "function") {
-    throw new TypeError("A transaction callback is required.");
+    throw new TypeError(
+      "A transaction callback is required."
+    );
   }
 
-  const client = createRestrictedDbClient();
+  const pool = getRestrictedDbPool();
 
-  let connected = false;
+  let client;
   let transactionStarted = false;
+  let discardConnection = false;
 
   try {
-    await client.connect();
-    connected = true;
+    client = await pool.connect();
 
     await client.query("BEGIN");
     transactionStarted = true;
@@ -43,10 +45,13 @@ export async function withRestrictedTransaction(callback) {
 
     return result;
   } catch (error) {
-    if (transactionStarted) {
+    if (transactionStarted && client) {
       try {
         await client.query("ROLLBACK");
+        transactionStarted = false;
       } catch (rollbackError) {
+        discardConnection = true;
+
         console.error(
           "[Restricted DB] Transaction rollback failed.",
           rollbackError
@@ -56,15 +61,8 @@ export async function withRestrictedTransaction(callback) {
 
     throw error;
   } finally {
-    if (connected) {
-      try {
-        await client.end();
-      } catch (closeError) {
-        console.error(
-          "[Restricted DB] Connection cleanup failed.",
-          closeError
-        );
-      }
+    if (client) {
+      client.release(discardConnection);
     }
   }
 }
