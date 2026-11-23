@@ -16,7 +16,7 @@ const initialForm = {
 const CONTACT_SUBMISSIONS_ENABLED = false;
 
 const inputClass =
-  "w-full rounded-none border-0 border-b border-neutral-300 bg-transparent px-0 py-4 text-base text-neutral-950 outline-none transition-colors placeholder:text-neutral-400 focus:border-neutral-950 disabled:cursor-not-allowed disabled:opacity-60";
+  "w-full rounded-none border-0 border-b border-neutral-300 bg-transparent px-0 py-4 text-base text-neutral-950 outline-none transition-colors placeholder:text-neutral-600 focus:border-neutral-950 disabled:cursor-not-allowed disabled:opacity-60";
 
 const labelClass =
   "block text-xs font-semibold uppercase tracking-[0.15em] text-neutral-500";
@@ -99,7 +99,7 @@ export default function Contact() {
             >
               Have something in mind?
               <br />
-              <span className="text-neutral-400">
+              <span className="text-neutral-600">
                 Let&apos;s make it happen.
               </span>
             </h2>

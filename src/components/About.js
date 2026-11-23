@@ -49,7 +49,7 @@ export default function About() {
             >
               Technology with purpose.
               <br />
-              <span className="text-neutral-400">
+              <span className="text-neutral-600">
                 Design with intention.
               </span>
             </h2>
@@ -88,7 +88,7 @@ export default function About() {
               {principles.map((principle) => (
                 <article key={principle.number}>
                   <div className="mb-5 flex items-center gap-4">
-                    <span className="text-sm text-neutral-400">
+                    <span className="text-sm text-neutral-600">
                       {principle.number}
                     </span>
 
@@ -113,7 +113,7 @@ export default function About() {
           <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
             <p className="max-w-2xl text-2xl font-medium leading-snug tracking-[-0.04em] md:text-4xl">
               We don&apos;t just build websites.
-              <span className="text-neutral-400">
+              <span className="text-neutral-600">
                 {" "}We build digital foundations for what comes next.
               </span>
             </p>

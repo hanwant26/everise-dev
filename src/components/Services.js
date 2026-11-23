@@ -53,7 +53,7 @@ export default function Services() {
             >
               Digital solutions.
               <br />
-              <span className="text-neutral-400">
+              <span className="text-neutral-600">
                 Built for what&apos;s next.
               </span>
             </h2>
@@ -74,7 +74,7 @@ export default function Services() {
               className="group grid gap-5 border-b border-neutral-300 py-9 transition-colors duration-300 hover:bg-white/70 md:grid-cols-12 md:items-start md:gap-8 md:px-4 md:py-12"
             >
               <div className="md:col-span-1">
-                <span className="text-sm font-medium text-neutral-400">
+                <span className="text-sm font-medium text-neutral-600">
                   {service.number}
                 </span>
               </div>
@@ -90,7 +90,7 @@ export default function Services() {
                   {service.description}
                 </p>
 
-                <p className="mt-5 text-xs font-medium uppercase tracking-[0.12em] text-neutral-400">
+                <p className="mt-5 text-xs font-medium uppercase tracking-[0.12em] text-neutral-600">
                   {service.details}
                 </p>
               </div>
@@ -98,7 +98,7 @@ export default function Services() {
               <div className="hidden justify-end md:col-span-1 md:flex">
                 <span
                   aria-hidden="true"
-                  className="text-2xl text-neutral-400 transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-neutral-950"
+                  className="text-2xl text-neutral-600 transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-neutral-950"
                 >
                   ↗
                 </span>

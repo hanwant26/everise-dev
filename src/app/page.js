@@ -22,7 +22,7 @@ export default function Home() {
           <h1 className="text-5xl font-semibold leading-[1.08] tracking-[-0.065em] sm:text-6xl md:text-7xl lg:text-8xl">
             Digital experiences,
             <br />
-            <span className="text-neutral-400">
+            <span className="text-neutral-600">
               built to stand out.
             </span>
           </h1>

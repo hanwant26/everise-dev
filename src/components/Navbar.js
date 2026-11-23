@@ -26,7 +26,7 @@ export default function Navbar() {
           aria-label="EVERISE DEV homepage"
         >
           everise
-          <span className="text-neutral-400">.dev</span>
+          <span className="text-neutral-600">.dev</span>
         </a>
 
         {/* Desktop navigation */}
